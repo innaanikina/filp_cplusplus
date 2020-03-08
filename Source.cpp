@@ -25,21 +25,28 @@ int main()
 	CloseHandle(book);
 
 	map<string, size_t> words;
-	char* word = strtok(Text, " .,-\n\t\r:;!?()"); 
+	char* word = strtok(Text, " .,-\n\t\r:;!?()=\"_|");
 	while (word != NULL)
 	{
 		words[word]++;
-		word = strtok(NULL, " .,-\n\t\r:;!?()=\"");
+		word = strtok(NULL, " .,-\n\t\r:;!?()=\"_|");
 	}
 
 	map<int, string> result;
+	map<size_t, string> result2;
 
 	for (auto it = words.begin(); it != words.end(); ++it)
 	{
 		result[(*it).second] = (*it).first;
+		result2[(*it).second] = (*it).first;
 	}
 
-	for (auto iter = result.begin(); iter != result.end(); ++iter)
+	for (auto it2 = words.begin(); it2 != words.end(); ++it2)
+	{
+		cout << (*it2).second << " : " << (*it2).first << endl;
+	}
+
+	for (auto iter = result2.begin(); iter != result2.end(); ++iter)
 	{
 		cout << (*iter).first << " : " << (*iter).second << endl;
 	}
