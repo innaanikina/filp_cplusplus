@@ -13,4 +13,6 @@ int main()
 
 	cout << "The book's size is: " << size.QuadPart << endl;
 
+
+
 }
