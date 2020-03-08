@@ -25,6 +25,7 @@ int main()
 	CloseHandle(book);
 
 	map<string, size_t> words;
+	cout << Text << endl;
 	char* word = strtok(Text, " .,-\n\t\r:;!?()=\"_|");
 	while (word != NULL)
 	{
